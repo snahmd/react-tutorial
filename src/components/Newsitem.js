@@ -4,10 +4,11 @@ import '../Newsitem.css';
  
 class NewsItem extends Component {
   render(){
+    const { hallo, lorem } = this.props;
     return(
       <div>
-        <h1 className="title">Hello React</h1>
-        <p>lorem ipsumm joıdjxoıdomxodmsodmo</p>
+        <h1 className="title">{hallo}</h1>
+        <p>{ lorem }</p>
       </div>
     )
   }

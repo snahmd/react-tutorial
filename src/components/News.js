@@ -3,11 +3,12 @@ import NewsItem from './Newsitem';
 
 class News extends React.Component {
   render(){
-    let nameElement = <div>mehmet</div>
+    const title = 'react js';
+    const description = 'react description';
     return(
       <div>
-         { nameElement } 
-         <NewsItem></NewsItem>
+         
+         <NewsItem hallo={title} lorem={ description }/>
       </div>
     )
   }
