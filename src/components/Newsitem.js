@@ -4,11 +4,13 @@ import '../Newsitem.css';
  
 class NewsItem extends Component {
   render(){
-    const { hallo, lorem } = this.props;
+    const { title, description } = this.props;
     return(
       <div>
-        <h1 className="title">{hallo}</h1>
-        <p>{ lorem }</p>
+        <h1 className="title">{title}</h1>
+        <p>
+          { description }
+        </p>
       </div>
     )
   }
