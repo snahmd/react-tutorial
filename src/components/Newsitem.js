@@ -8,7 +8,7 @@ class NewsItem extends Component {
     newsData: PropTypes.shape({
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired
-    }).isRequired
+    }).isRequired,
   };
 
   render(){

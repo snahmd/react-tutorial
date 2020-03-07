@@ -8,8 +8,13 @@ class News extends React.Component {
     name: PropTypes.oneOfType([
       PropTypes.number,
       PropTypes.string
-    ])
+    ]).isRequired,
   };
+
+  static defaultProps = {
+    name: "san"
+  };
+  
   render(){
     const elements = this.props.news.map(news => 
       <div key={news.id}>
