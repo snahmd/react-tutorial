@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import NewsItem from './Newsitem';
+import NewsForm from './NewsForm';
 
 class News extends React.Component {
   static propTypes = {
@@ -16,6 +17,7 @@ class News extends React.Component {
   };
   
   render(){
+    console.log(this.props.addNews)
     const elements = this.props.news.map(news => 
       <div key={news.id}>
         <NewsItem 
@@ -27,6 +29,7 @@ class News extends React.Component {
       <div> 
         { this.props.name }
         { elements }
+        <NewsForm addNews={this.props.addNews}/>
       </div>
     )
   }
