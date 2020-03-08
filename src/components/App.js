@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
 
-import News from './News';
+//import News from './News';
+import Counter from './Counter';
 
-const news = [{
+/*const news = [{
   id:1,
   title: "title 1",
   description: "description 1",
@@ -18,7 +19,7 @@ const news = [{
   id:3,
   title: "title 3",
   description: "description 3" 
-}];
+}];*/
 
 class App extends Component {
   /*constructor(props) {
@@ -27,18 +28,19 @@ class App extends Component {
       name: 'ahmed'
     }
   }*/
-  state = {
+  /*state = {
     name: 'mehmet'
-  };
-  changeName(){
+  };*/
+  /*changeName(){
     this.setState({
       name: 'ahmet' + Math.floor(Math.random() *3)
     });
     //this.state.name = "ahmet";
-    console.log(this.state);
-  }
+    console.log(this.state); 
+  }*/
 
-  addNews(){
+
+  /*addNews(){
     console.log("addNews componenti çalıştı");
     news.push({
       id: 4,
@@ -46,8 +48,8 @@ class App extends Component {
       description: "description 4"
     }); 
     console.log(news);
-  }
-  render() {
+  }*/
+  /*render() {
     return(
       <div className="App">
         <header className="App-header">
@@ -59,7 +61,14 @@ class App extends Component {
         
       </div>
     );
-  }  
+  } */ 
+  render() {
+    return(
+      <div className="App">
+       <Counter/>
+      </div>
+    );
+  }
 }
 
 export default App;
