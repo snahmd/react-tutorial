@@ -21,7 +21,17 @@ const news = [{
 }];
 
 class App extends Component {
-  
+  /*constructor(props) {
+    super(props);
+    this.state = {
+      name: 'ahmed'
+    }
+  }*/
+  state = {
+    name: 'mehmet'
+  };
+
+
   addNews(){
     console.log("addNews componenti çalıştı");
     news.push({
@@ -35,8 +45,8 @@ class App extends Component {
     return(
       <div className="App">
         <header className="App-header">
-        <News news={news} addNews={this.addNews} />
-        
+         <News news={news} addNews={this.addNews} />
+         <h1>{ this.state.name }</h1>
         </header>
        
         
