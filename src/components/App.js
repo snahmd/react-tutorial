@@ -30,7 +30,13 @@ class App extends Component {
   state = {
     name: 'mehmet'
   };
-
+  changeName(){
+    this.setState({
+      name: 'ahmet'
+    });
+    //this.state.name = "ahmet";
+    console.log(this.state);
+  }
 
   addNews(){
     console.log("addNews componenti çalıştı");
@@ -47,6 +53,7 @@ class App extends Component {
         <header className="App-header">
          <News news={news} addNews={this.addNews} />
          <h1>{ this.state.name }</h1>
+         <button onClick={ this.changeName.bind(this) }>Change the name</button>
         </header>
        
         
