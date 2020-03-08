@@ -32,7 +32,7 @@ class App extends Component {
   };
   changeName(){
     this.setState({
-      name: 'ahmet'
+      name: 'ahmet' + Math.floor(Math.random() *3)
     });
     //this.state.name = "ahmet";
     console.log(this.state);
