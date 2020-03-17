@@ -23,6 +23,20 @@ import Footer from './Footer';
 }];*/
 
 class App extends Component {
+
+  state = {
+    name: 'mehmet'
+  };
+
+  constructor(props) {
+    super();
+    console.log("constructor çalıştı");
+    console.log(props);
+
+    this.state = {
+      name: 'kenan'
+    }
+  }
   /*constructor(props) {
     super(props);
     this.state = {
@@ -66,6 +80,7 @@ class App extends Component {
   render() {
     return(
       <div className="App">
+        { this.state.name }
        <Counter/>
        <Footer/>
       </div>
