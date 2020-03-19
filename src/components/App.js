@@ -44,6 +44,10 @@ class App extends Component {
   componentWillUpdate(nextProps, nextState) {
     console.log('componentWillUpdate çalıştı', nextProps, nextState);
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate çalıştı', prevProps, prevState);
+  }
   
   
   /*
