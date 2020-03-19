@@ -40,6 +40,10 @@ class App extends Component {
     //console.log('shouldComponentUpdate', nextProps, nextState);
     return (nextState.tl % 10) === 0;
   }
+
+  componentWillUpdate(nextProps, nextState) {
+    console.log('componentWillUpdate çalıştı', nextProps, nextState);
+  }
   
   
   /*
