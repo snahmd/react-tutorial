@@ -47,6 +47,11 @@ class App extends Component {
 
   }
   
+  changeName = () => {
+    this.setState({
+      name: 'Kenan'
+    })
+  };
 
   /*constructor(props) {
     super(props);
@@ -96,7 +101,8 @@ class App extends Component {
        <Counter/>
        <Footer/>
        <br/>
-       <Child/>
+       <Child name={this.state.name}/>
+       <button onClick={this.changeName}>Change the name</button>
       </div>
     );
   }

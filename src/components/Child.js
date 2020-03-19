@@ -14,6 +14,10 @@ class Child extends Component {
   componentDidMount() {
     console.log('child componentDidMount');
   }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('componentWillReceiveProps', nextProps);
+  }
   
   render() {
     console.log('child render');
