@@ -27,9 +27,27 @@ import Child from './Child';
 class App extends Component {
 
   state = {
+    tl: 0
+  };
+  
+  changeTL = (e) => {
+    this.setState({
+      tl: e.target.value
+    })
+  };
+
+  shouldComponentUpdate(nextProps, nextState) {
+    //console.log('shouldComponentUpdate', nextProps, nextState);
+    return (nextState.tl % 10) === 0;
+  }
+  
+  
+  /*
+  state = {
     name: 'mehmet'
   };
 
+  
   constructor(props) {
     super();
     console.log("constructor çalıştı");
@@ -52,7 +70,7 @@ class App extends Component {
       name: 'Kenan'
     })
   };
-
+ */
   /*constructor(props) {
     super(props);
     this.state = {
@@ -103,6 +121,12 @@ class App extends Component {
        <br/>
        <Child name={this.state.name}/>
        <button onClick={this.changeName}>Change the name</button>
+       <br/>
+       <input name="tl" id="tl" onChange={this.changeTL}/>
+       <br/>
+       <br/>
+       Her elma 10 tl.<br/>
+       { this.state.tl / 10 } tane elma alabilirsiniz.
       </div>
     );
   }
