@@ -37,6 +37,13 @@ class App extends Component {
       name: 'kenan'
     }
   }
+
+  
+  componentWillMount() {
+    console.log('componentWillMount çalıştı');
+  }
+  
+
   /*constructor(props) {
     super(props);
     this.state = {
@@ -78,6 +85,7 @@ class App extends Component {
     );
   } */ 
   render() {
+    console.log('render çalıştı')
     return(
       <div className="App">
         { this.state.name }
