@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
 
+
 //import News from './News';
 import Counter from './Counter';
 import Footer from './Footer';
+import Child from './Child';
 
 /*const news = [{
   id:1,
@@ -33,9 +35,6 @@ class App extends Component {
     console.log("constructor çalıştı");
     console.log(props);
 
-    this.state = {
-      name: 'kenan'
-    }
   }
 
   
@@ -46,11 +45,6 @@ class App extends Component {
   componentDidMount() {
     console.log('componentDidMount çalıştı');
 
-    setTimeout(() => {
-      this.setState({
-        name: 'Ahmed'
-      });
-    }, 2000)
   }
   
 
@@ -101,6 +95,8 @@ class App extends Component {
         { this.state.name }
        <Counter/>
        <Footer/>
+       <br/>
+       <Child/>
       </div>
     );
   }
