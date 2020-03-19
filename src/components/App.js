@@ -26,6 +26,7 @@ import Child from './Child';
 
 class App extends Component {
 
+  /*
   state = {
     tl: 0
   };
@@ -48,7 +49,7 @@ class App extends Component {
   componentDidUpdate(prevProps, prevState) {
     console.log('componentDidUpdate çalıştı', prevProps, prevState);
   }
-  
+  */
   
   /*
   state = {
@@ -119,9 +120,27 @@ class App extends Component {
       </div>
     );
   } */ 
+
+  state= {
+    users: []
+  };
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(data => data.json())
+    .then(users => {
+      //console.log(users);
+      this.setState({
+        users:users,
+      });
+    })
+  }
+  
+
   render() {
     console.log('render çalıştı')
     return(
+      /*
       <div className="App">
         { this.state.name }
        <Counter/>
@@ -135,6 +154,17 @@ class App extends Component {
        <br/>
        Her elma 10 tl.<br/>
        { this.state.tl / 10 } tane elma alabilirsiniz.
+      </div>
+      */
+      <div className="App">
+        <h1>Users</h1>
+        {
+          this.state.users.map(user =>
+            <div key={ user.id } className={"userList"}>
+              { user.name } - @{ user.username }
+            </div>
+          )
+        }
       </div>
     );
   }
