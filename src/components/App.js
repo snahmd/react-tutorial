@@ -43,6 +43,16 @@ class App extends Component {
     console.log('componentWillMount çalıştı');
   }
   
+  componentDidMount() {
+    console.log('componentDidMount çalıştı');
+
+    setTimeout(() => {
+      this.setState({
+        name: 'Ahmed'
+      });
+    }, 2000)
+  }
+  
 
   /*constructor(props) {
     super(props);
