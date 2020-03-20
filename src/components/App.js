@@ -155,7 +155,7 @@ class App extends Component {
               return(<h1>Home page</h1>)
             }
           } />
-          <Route path="/contact" exact render={
+          <Route path="/contact" exact strict render={
             () => {
               return(<h1>Contact page</h1>)
             }
