@@ -3,6 +3,7 @@ import logo from '../logo.svg';
 import '../App.css';
 
 import axios from 'axios';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
 //import News from './News';
@@ -123,6 +124,7 @@ class App extends Component {
     );
   } */ 
 
+  /*
   state= {
     users: [],
     isLoading: true
@@ -139,12 +141,27 @@ class App extends Component {
         });
       }); 
   }
-  
+  */
 
   render() {
     //console.log('render çalıştı')
-    const { isLoading } = this.state;
+    
+    //const { isLoading } = this.state;
     return(
+      <Router>
+        <div>
+          <Route path="/" exact render={
+            () => {
+              return(<h1>Home page</h1>)
+            }
+          } />
+          <Route path="/contact" exact render={
+            () => {
+              return(<h1>Contact page</h1>)
+            }
+          } />
+        </div>
+      </Router>
       /*
       <div className="App">
         { this.state.name }
@@ -160,7 +177,7 @@ class App extends Component {
        Her elma 10 tl.<br/>
        { this.state.tl / 10 } tane elma alabilirsiniz.
       </div>
-      */
+      
       <div className="App">
         <h1>Users</h1>
         { isLoading ? 'Loading...' : '' }
@@ -172,6 +189,7 @@ class App extends Component {
           ) : null
         }
       </div>
+      */
     );
   }
 }
