@@ -3,7 +3,7 @@ import logo from '../logo.svg';
 import '../App.css';
 
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Link, NavLink, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, NavLink, Redirect, Switch } from 'react-router-dom';
 
 
 //import News from './News';
@@ -33,6 +33,10 @@ const News = ({ match }) => {
 
 const Profile = () => {
   return(<h1>Profile Page: Ahmed San</h1>)
+};
+
+const Error = () => {
+  return(<h1>This page was not found.</h1>)
 };
 
 
@@ -179,6 +183,7 @@ class App extends Component {
             onClick={this.onClickButton}
             value={ this.state.loggedIn ? 'Logout': 'Login'} 
           />
+          <Switch>
           <Route path="/" exact render={
             () => {
               return(<h1>Home page</h1>)
@@ -193,6 +198,8 @@ class App extends Component {
           <Route path="/profile" exact strict render={ () => (
             this.state.loggedIn ? ( <Profile/> ): (<Redirect to="/" />)
           )}/>
+          <Route component={Error}/>
+          </Switch>  
         </div>
       </Router>
       /*
