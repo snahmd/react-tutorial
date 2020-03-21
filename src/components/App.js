@@ -3,7 +3,7 @@ import logo from '../logo.svg';
 import '../App.css';
 
 import axios from 'axios';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
 
 
 //import News from './News';
@@ -157,9 +157,9 @@ class App extends Component {
     return(
       <Router>
         <div>
-          <Link to="/">Homepage</Link> <br/>
-          <Link to="/contact">Contact</Link> <br/>
-          <Link to="/news/3">News</Link> <br/>
+          <NavLink activeClassName="activelink" exact to="/">Homepage</NavLink> <br/>
+          <NavLink activeClassName="activelink" exact to="/contact">Contact</NavLink> <br/>
+          <NavLink activeClassName="activelink" exact to="/news/3">News</NavLink> <br/>
           <Route path="/" exact render={
             () => {
               return(<h1>Home page</h1>)
