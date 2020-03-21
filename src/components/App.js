@@ -27,6 +27,11 @@ import Child from './Child';
   description: "description 3" 
 }];*/
 
+const News = () => {
+  return(<h1>News page</h1>)
+};
+
+
 class App extends Component {
 
   /*
@@ -143,6 +148,7 @@ class App extends Component {
   }
   */
 
+
   render() {
     //console.log('render çalıştı')
     
@@ -160,6 +166,7 @@ class App extends Component {
               return(<h1>Contact page</h1>)
             }
           } />
+          <Route path="/news" exact strict component={News}/>
         </div>
       </Router>
       /*
