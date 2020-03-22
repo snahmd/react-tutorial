@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Route, Link, NavLink, Redirect, Switch } from 
 import Counter from './Counter';
 import Footer from './Footer';
 import Child from './Child';
+import Posts from './Posts';
 
 /*const news = [{
   id:1,
@@ -27,6 +28,7 @@ import Child from './Child';
   description: "description 3" 
 }];*/
 
+/*
 const News = ({ match }) => { 
   return(<h1>News page: { match.params.id }</h1>)
 };
@@ -38,9 +40,29 @@ const Profile = () => {
 const Error = () => {
   return(<h1>This page was not found.</h1>)
 };
-
+*/
 
 class App extends Component {
+  
+  state = {
+    posts: [],
+    loading : true
+  };
+
+  
+  componentWillMount() {
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+    .then(posts => posts.data)
+    .then(posts => {
+      setTimeout(()=>{
+        this.setState({
+          posts,
+          loading: false
+        });
+      }, 2000)
+    })
+  }
+  
 
   /*
   state = {
@@ -155,7 +177,7 @@ class App extends Component {
       }); 
   }
   */
-
+  /*
   state = {
     loggedIn: false
   };  
@@ -165,12 +187,18 @@ class App extends Component {
       loggedIn: !prevState.loggedIn
     }))
   }
+  */
+
 
   render() {
     //console.log('render çalıştı')
     
     //const { isLoading } = this.state;
     return(
+      <div className="App">
+        <Posts {...this.state} />
+      </div>
+      /*
       <Router>
         <div>
           <NavLink activeClassName="activelink" exact to="/">Homepage</NavLink> <br/>
@@ -184,24 +212,25 @@ class App extends Component {
             value={ this.state.loggedIn ? 'Logout': 'Login'} 
           />
           <Switch>
-          <Route path="/" exact render={
-            () => {
-              return(<h1>Home page</h1>)
-            }
-          } />
-          <Route path="/contact" exact strict render={
-            () => {
-              return(<h1>Contact page</h1>)
-            }
-          } />
-          <Route path="/news/:id" exact strict component={News}/>
-          <Route path="/profile" exact strict render={ () => (
-            this.state.loggedIn ? ( <Profile/> ): (<Redirect to="/" />)
-          )}/>
-          <Route component={Error}/>
+            <Route path="/" exact render={
+              () => {
+                return(<h1>Home page</h1>)
+              }
+            } />
+            <Route path="/contact" exact strict render={
+              () => {
+                return(<h1>Contact page</h1>)
+              }
+            } />
+            <Route path="/news/:id" exact strict component={News}/>
+            <Route path="/profile" exact strict render={ () => (
+              this.state.loggedIn ? ( <Profile/> ): (<Redirect to="/" />)
+            )}/>
+            <Route component={Error}/>
           </Switch>  
         </div>
       </Router>
+      */
       /*
       <div className="App">
         { this.state.name }
