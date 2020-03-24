@@ -11,6 +11,7 @@ import Counter from './Counter';
 import Footer from './Footer';
 import Child from './Child';
 import Posts from './Posts';
+import Users from './Users';
 
 /*const news = [{
   id:1,
@@ -46,7 +47,7 @@ class App extends Component {
   
   state = {
     posts: [],
-    loading : true
+    users: [],
   };
 
   
@@ -57,9 +58,21 @@ class App extends Component {
       setTimeout(()=>{
         this.setState({
           posts,
-          loading: false
+          
         });
       }, 2000)
+    });
+
+    axios.get('https://jsonplaceholder.typicode.com/users')
+    .then(users => users.data)
+    .then(users => {
+      setTimeout(()=>{
+        console.log(users);
+        this.setState({
+          users,
+          
+        });
+      }, 500)
     })
   }
   
@@ -196,6 +209,8 @@ class App extends Component {
     //const { isLoading } = this.state;
     return(
       <div className="App">
+        <Users {...this.state} />
+        <hr/>
         <Posts {...this.state} />
       </div>
       /*
