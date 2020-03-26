@@ -12,6 +12,8 @@ import Footer from './Footer';
 import Child from './Child';
 import Posts from './Posts';
 import Users from './Users';
+import FirstNumber from './FirstNumber';
+import SecondNumber from './SecondNumber';
 
 /*const news = [{
   id:1,
@@ -44,7 +46,21 @@ const Error = () => {
 */
 
 class App extends Component {
-  
+
+  state = {
+    firstNumber : Math.random(),
+    secondNumber : Math.random(),
+  };
+
+  componentDidMount() {
+		setInterval(() => {
+			this.setState({
+				firstNumber: Math.random(),
+			});
+		}, 1000)
+	}
+
+  /*
   state = {
     posts: [],
     users: [],
@@ -75,7 +91,7 @@ class App extends Component {
       }, 500)
     })
   }
-  
+  */
 
   /*
   state = {
@@ -209,10 +225,16 @@ class App extends Component {
     //const { isLoading } = this.state;
     return(
       <div className="App">
+        <FirstNumber firstNumber={this.state.firstNumber} />
+        <SecondNumber secondNumber={this.state.secondNumber} />
+      </div>
+      /*
+      <div className="App">
         <Users {...this.state} />
         <hr/>
         <Posts {...this.state} />
       </div>
+      */
       /*
       <Router>
         <div>
