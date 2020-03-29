@@ -24,8 +24,21 @@ const action = {
   }
 };
 
+const action2 = {
+  type:'changeTheState',
+  payload: {
+    newState: 'my new state 2'
+  }
+};
+
+store.subscribe(() => {
+  console.log('Store updated');
+  console.log(store.getState());
+});
+
 store.dispatch(action);
-console.log(store.getState());
+store.dispatch(action2);
+
 
 ReactDOM.render(<App></App>, document.getElementById('root'));
 
