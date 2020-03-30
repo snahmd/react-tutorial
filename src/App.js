@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
-  
+    console.log(this.props);
     return(
       <div className="App">
         hallo
@@ -16,4 +16,12 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+// const mapStateToProps = state => ({
+//   products: state.products
+// });
+
+const mapStateToProps = state => {
+  return state;
+};
+
+export default connect(mapStateToProps)(App);
