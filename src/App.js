@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import { connect } from 'react-redux';
-import { updateUser } from './actions/user-actions';
+import { updateUser, getUsers } from './actions/user-actions';
 
 class App extends Component {
   constructor(props) {
@@ -14,6 +14,11 @@ class App extends Component {
   onUpdateUser() {
     this.props.onUpdateUser('Veli');
   }
+
+  componentDidMount() {
+    this.props.onGetUsers();
+  }
+
   render() {
     console.log(this.props);
     return(
@@ -39,13 +44,17 @@ const mapStateToProps = (state, props) => {
 };
 
 const mapDispatchToProps = {
-  onUpdateUser: updateUser
+  onUpdateUser: updateUser,
+  onGetUsers: getUsers
 };
 
+/** 
 const mergeProps = (propsFromState, propsFromDispatch, ownProps) => {
   console.log(propsFromState);
   console.log(propsFromDispatch);
   console.log(ownProps);
 };
 
-export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(App);
+*/
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
