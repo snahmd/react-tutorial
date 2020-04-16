@@ -4,7 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { combineReducers, createStore } from 'redux';
+import thunk from 'redux-thunk';
+import { compose, applyMiddleware, combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 import userReducer from './reducers/userReducer';
@@ -16,6 +17,11 @@ const rootReducer = combineReducers({
   user: userReducer
 });
 
+const allEnhancers = compose(
+  applyMiddleware(thunk),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
 const store = createStore(
   rootReducer, 
   {
@@ -25,7 +31,7 @@ const store = createStore(
   }],
   user: 'Ahmed'
   },
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  allEnhancers
 );
 
 
